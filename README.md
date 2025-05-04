@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Netflix-clone-using-Front-End
 
 ## Overview
@@ -58,3 +59,6 @@ Images and content: [Netflix](https://www.netflix.com/)
 
 ## Contact
 For any inquiries or feedback, please contact mallikarjunphatate@gmail.com.
+=======
+# Netflix_karnikachinmayi
+>>>>>>> b8e8b21cb1bc3480d2951359f452a60d8460251c
