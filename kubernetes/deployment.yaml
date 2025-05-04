@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: Netflix
+  labels:
+    app: Netflix
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app:  Netflix
+  template:
+    metadata:
+      labels:
+        app:  Netflix
+    spec:
+      containers:
+      - name: Netflix
+        image: karnikachinmayi/Netflix:latest
+        ports:
+        - containerPort: 3000
