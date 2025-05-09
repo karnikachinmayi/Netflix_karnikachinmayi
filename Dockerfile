@@ -1,14 +1,23 @@
-# Use the official Nginx base image
-FROM nginx:latest
+# Use Node.js 16 slim as the base image
+FROM node:16-slim
 
-# Set the working directory for serving files
-WORKDIR /usr/share/nginx/html
+# Set the working directory
+WORKDIR /app
 
-# Copy your HTML, CSS, and JavaScript files into the container
-COPY . /usr/share/nginx/html
+# Copy package.json and package-lock.json to the working directory
+COPY package*.json ./
 
-# Expose port 80 for web traffic
-EXPOSE 80
+# Install dependencies
+RUN npm install
 
-# Start Nginx server
-CMD ["nginx", "-g", "daemon off;"]
+# Copy the rest of the application code
+COPY . .
+
+# Build the React app
+RUN npm run build
+
+# Expose port 3000 (or the port your app is configured to listen on)
+EXPOSE 3000
+
+# Start your Node.js server (assuming it serves the React app)  
+CMD ["npm", "start"]
