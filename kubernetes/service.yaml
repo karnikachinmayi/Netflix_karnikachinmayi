@@ -1,12 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: frontend-service
+  name: netflix
+  labels:
+    app: netflix
 spec:
-  selector:
-    app: frontend-app
+  type: NodePort
   ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 80
-  type: LoadBalancer  # Use NodePort if LoadBalancer isn't available
+  - port: 3000
+    targetPort: 3000
+    nodePort: 30001
+  selector:
+    app: netflix 
