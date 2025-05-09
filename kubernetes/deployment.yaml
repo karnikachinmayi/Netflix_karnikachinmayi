@@ -1,21 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: Netflix
-  labels:
-    app: Netflix
+  name: frontend-app
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app:  Netflix
+      app: frontend-app
   template:
     metadata:
       labels:
-        app:  Netflix
+        app: frontend-app
     spec:
       containers:
-      - name: Netflix
-        image: karnikachinmayi/Netflix:latest
+      - name: frontend-app
+        image: karnikachinmayi/netflix:latest  # Replace with your actual Docker image
         ports:
-        - containerPort: 3000
+        - containerPort: 80
